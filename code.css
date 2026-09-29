@@ -1,0 +1,309 @@
+/* ==UserStyle==
+@name        GitHub Catppuccin Mocha
+@namespace   github.com/IbrokhimN
+@version     2.1.0
+@description Catppuccin Mocha theme for all of GitHub with an accent picker and a themed contribution graph
+@author      IbrokhimN
+@preprocessor uso
+@var select accent "Accent" {
+  "rosewater": "#f5e0dc",
+  "flamingo": "#f2cdcd",
+  "pink": "#f5c2e7",
+  "mauve*": "#cba6f7",
+  "red": "#f38ba8",
+  "peach": "#fab387",
+  "yellow": "#f9e2af",
+  "green": "#a6e3a1",
+  "teal": "#94e2d5",
+  "sky": "#89dceb",
+  "blue": "#89b4fa",
+  "lavender": "#b4befe"
+}
+==/UserStyle== */
+@-moz-document domain("github.com"), domain("gist.github.com") {
+  html:root[data-color-mode][data-color-mode] {
+    color-scheme: dark;
+    --ctp-rosewater: #f5e0dc; --ctp-flamingo: #f2cdcd; --ctp-pink: #f5c2e7;
+    --ctp-mauve: #cba6f7;     --ctp-red: #f38ba8;      --ctp-maroon: #eba0ac;
+    --ctp-peach: #fab387;     --ctp-yellow: #f9e2af;   --ctp-green: #a6e3a1;
+    --ctp-teal: #94e2d5;      --ctp-sky: #89dceb;      --ctp-sapphire: #74c7ec;
+    --ctp-blue: #89b4fa;      --ctp-lavender: #b4befe;
+    --ctp-text: #cdd6f4;      --ctp-subtext1: #bac2de; --ctp-subtext0: #a6adc8;
+    --ctp-overlay2: #9399b2;  --ctp-overlay1: #7f849c; --ctp-overlay0: #6c7086;
+    --ctp-surface2: #585b70;  --ctp-surface1: #45475a; --ctp-surface0: #313244;
+    --ctp-base: #1e1e2e;      --ctp-mantle: #181825;   --ctp-crust: #11111b;
+    --ctp-accent: /*[[accent]]*/;
+    --bgColor-default: var(--ctp-base);
+    --bgColor-muted: var(--ctp-mantle);
+    --bgColor-inset: var(--ctp-crust);
+    --bgColor-emphasis: var(--ctp-surface1);
+    --bgColor-inverse: var(--ctp-text);
+    --bgColor-neutral-muted: color-mix(in srgb, var(--ctp-surface1) 50%, transparent);
+    --bgColor-neutral-emphasis: var(--ctp-overlay0);
+    --bgColor-disabled: var(--ctp-surface0);
+    --bgColor-accent-muted: color-mix(in srgb, var(--ctp-accent) 15%, transparent);
+    --bgColor-accent-emphasis: var(--ctp-accent);
+    --bgColor-success-muted: color-mix(in srgb, var(--ctp-green) 15%, transparent);
+    --bgColor-success-emphasis: var(--ctp-green);
+    --bgColor-attention-muted: color-mix(in srgb, var(--ctp-yellow) 15%, transparent);
+    --bgColor-attention-emphasis: var(--ctp-yellow);
+    --bgColor-severe-muted: color-mix(in srgb, var(--ctp-peach) 15%, transparent);
+    --bgColor-severe-emphasis: var(--ctp-peach);
+    --bgColor-danger-muted: color-mix(in srgb, var(--ctp-red) 15%, transparent);
+    --bgColor-danger-emphasis: var(--ctp-red);
+    --bgColor-done-muted: color-mix(in srgb, var(--ctp-mauve) 15%, transparent);
+    --bgColor-done-emphasis: var(--ctp-mauve);
+    --bgColor-open-muted: color-mix(in srgb, var(--ctp-green) 15%, transparent);
+    --bgColor-open-emphasis: var(--ctp-green);
+    --bgColor-closed-muted: color-mix(in srgb, var(--ctp-red) 15%, transparent);
+    --bgColor-closed-emphasis: var(--ctp-red);
+    --bgColor-sponsors-muted: color-mix(in srgb, var(--ctp-pink) 15%, transparent);
+    --bgColor-sponsors-emphasis: var(--ctp-pink);
+    --fgColor-default: var(--ctp-text);
+    --fgColor-muted: var(--ctp-subtext0);
+    --fgColor-onEmphasis: var(--ctp-crust);
+    --fgColor-onInverse: var(--ctp-crust);
+    --fgColor-disabled: var(--ctp-overlay0);
+    --fgColor-link: var(--ctp-accent);
+    --fgColor-neutral: var(--ctp-overlay1);
+    --fgColor-accent: var(--ctp-accent);
+    --fgColor-success: var(--ctp-green);
+    --fgColor-attention: var(--ctp-yellow);
+    --fgColor-severe: var(--ctp-peach);
+    --fgColor-danger: var(--ctp-red);
+    --fgColor-open: var(--ctp-green);
+    --fgColor-closed: var(--ctp-red);
+    --fgColor-done: var(--ctp-mauve);
+    --fgColor-sponsors: var(--ctp-pink);
+    --borderColor-default: var(--ctp-surface1);
+    --borderColor-muted: var(--ctp-surface0);
+    --borderColor-emphasis: var(--ctp-overlay0);
+    --borderColor-disabled: var(--ctp-surface0);
+    --borderColor-neutral-muted: var(--ctp-surface1);
+    --borderColor-neutral-emphasis: var(--ctp-overlay0);
+    --borderColor-accent-muted: color-mix(in srgb, var(--ctp-accent) 40%, transparent);
+    --borderColor-accent-emphasis: var(--ctp-accent);
+    --borderColor-success-muted: color-mix(in srgb, var(--ctp-green) 40%, transparent);
+    --borderColor-success-emphasis: var(--ctp-green);
+    --borderColor-attention-muted: color-mix(in srgb, var(--ctp-yellow) 40%, transparent);
+    --borderColor-attention-emphasis: var(--ctp-yellow);
+    --borderColor-severe-muted: color-mix(in srgb, var(--ctp-peach) 40%, transparent);
+    --borderColor-severe-emphasis: var(--ctp-peach);
+    --borderColor-danger-muted: color-mix(in srgb, var(--ctp-red) 40%, transparent);
+    --borderColor-danger-emphasis: var(--ctp-red);
+    --borderColor-done-muted: color-mix(in srgb, var(--ctp-mauve) 40%, transparent);
+    --borderColor-done-emphasis: var(--ctp-mauve);
+    --borderColor-open-muted: color-mix(in srgb, var(--ctp-green) 40%, transparent);
+    --borderColor-open-emphasis: var(--ctp-green);
+    --borderColor-closed-muted: color-mix(in srgb, var(--ctp-red) 40%, transparent);
+    --borderColor-closed-emphasis: var(--ctp-red);
+    --button-default-bgColor-rest: var(--ctp-surface0);
+    --button-default-bgColor-hover: var(--ctp-surface1);
+    --button-default-bgColor-active: var(--ctp-surface2);
+    --button-default-borderColor-rest: var(--ctp-surface1);
+    --button-default-borderColor-hover: var(--ctp-accent);
+    --button-primary-bgColor-rest: var(--ctp-accent);
+    --button-primary-bgColor-hover: color-mix(in srgb, var(--ctp-accent) 85%, white);
+    --button-primary-bgColor-active: color-mix(in srgb, var(--ctp-accent) 75%, black);
+    --button-primary-fgColor-rest: var(--ctp-crust);
+    --button-primary-borderColor-rest: transparent;
+    --button-danger-fgColor-rest: var(--ctp-red);
+    --button-danger-bgColor-hover: var(--ctp-red);
+    --button-danger-fgColor-hover: var(--ctp-crust);
+    --button-invisible-bgColor-hover: var(--ctp-surface0);
+    --control-bgColor-rest: var(--ctp-surface0);
+    --control-bgColor-hover: var(--ctp-surface1);
+    --control-bgColor-active: var(--ctp-surface2);
+    --control-borderColor-rest: var(--ctp-surface1);
+    --control-transparent-bgColor-hover: var(--ctp-surface0);
+    --control-transparent-bgColor-selected: var(--ctp-surface1);
+    --controlTrack-bgColor-rest: var(--ctp-surface1);
+    --focus-outlineColor: var(--ctp-accent);
+    --header-bgColor: var(--ctp-mantle);
+    --header-fgColor-default: var(--ctp-text);
+    --header-borderColor-divider: var(--ctp-surface1);
+    --overlay-bgColor: var(--ctp-mantle);
+    --overlay-backdrop-bgColor: rgb(17 17 27 / 70%);
+    --selection-bgColor: color-mix(in srgb, var(--ctp-accent) 30%, transparent);
+    --color-canvas-default: var(--ctp-base);
+    --color-canvas-subtle: var(--ctp-mantle);
+    --color-canvas-inset: var(--ctp-crust);
+    --color-canvas-overlay: var(--ctp-mantle);
+    --color-fg-default: var(--ctp-text);
+    --color-fg-muted: var(--ctp-subtext0);
+    --color-fg-subtle: var(--ctp-overlay1);
+    --color-border-default: var(--ctp-surface1);
+    --color-border-muted: var(--ctp-surface0);
+    --color-border-subtle: var(--ctp-surface0);
+    --color-neutral-muted: var(--ctp-surface0);
+    --color-accent-fg: var(--ctp-accent);
+    --color-accent-emphasis: var(--ctp-accent);
+    --color-accent-muted: color-mix(in srgb, var(--ctp-accent) 40%, transparent);
+    --color-accent-subtle: color-mix(in srgb, var(--ctp-accent) 15%, transparent);
+    --color-success-fg: var(--ctp-green);
+    --color-danger-fg: var(--ctp-red);
+    --color-attention-fg: var(--ctp-yellow);
+    --color-done-fg: var(--ctp-mauve);
+    --color-header-bg: var(--ctp-mantle);
+    --color-btn-bg: var(--ctp-surface0);
+    --color-btn-hover-bg: var(--ctp-surface1);
+    --color-btn-border: var(--ctp-surface1);
+    --color-btn-primary-bg: var(--ctp-accent);
+    --color-btn-primary-hover-bg: color-mix(in srgb, var(--ctp-accent) 85%, white);
+    --color-btn-primary-text: var(--ctp-crust);
+    --color-prettylights-syntax-comment: var(--ctp-overlay1);
+    --color-prettylights-syntax-constant: var(--ctp-peach);
+    --color-prettylights-syntax-constant-other-reference-link: var(--ctp-teal);
+    --color-prettylights-syntax-entity: var(--ctp-blue);
+    --color-prettylights-syntax-storage-modifier-import: var(--ctp-text);
+    --color-prettylights-syntax-entity-tag: var(--ctp-red);
+    --color-prettylights-syntax-keyword: var(--ctp-mauve);
+    --color-prettylights-syntax-string: var(--ctp-green);
+    --color-prettylights-syntax-variable: var(--ctp-flamingo);
+    --color-prettylights-syntax-brackethighlighter-unmatched: var(--ctp-red);
+    --color-prettylights-syntax-brackethighlighter-angle: var(--ctp-overlay2);
+    --color-prettylights-syntax-invalid-text-text: var(--ctp-crust);
+    --color-prettylights-syntax-invalid-text-bg: var(--ctp-red);
+    --color-prettylights-syntax-carriage-return-text: var(--ctp-crust);
+    --color-prettylights-syntax-carriage-return-bg: var(--ctp-red);
+    --color-prettylights-syntax-string-regexp: var(--ctp-teal);
+    --color-prettylights-syntax-markup-list: var(--ctp-yellow);
+    --color-prettylights-syntax-markup-heading: var(--ctp-blue);
+    --color-prettylights-syntax-markup-italic: var(--ctp-text);
+    --color-prettylights-syntax-markup-bold: var(--ctp-text);
+    --color-prettylights-syntax-markup-deleted-text: var(--ctp-red);
+    --color-prettylights-syntax-markup-deleted-bg: color-mix(in srgb, var(--ctp-red) 15%, transparent);
+    --color-prettylights-syntax-markup-inserted-text: var(--ctp-green);
+    --color-prettylights-syntax-markup-inserted-bg: color-mix(in srgb, var(--ctp-green) 15%, transparent);
+    --color-prettylights-syntax-markup-changed-text: var(--ctp-peach);
+    --color-prettylights-syntax-markup-changed-bg: color-mix(in srgb, var(--ctp-peach) 15%, transparent);
+    --color-prettylights-syntax-markup-ignored-text: var(--ctp-text);
+    --color-prettylights-syntax-markup-ignored-bg: var(--ctp-surface1);
+    --color-prettylights-syntax-meta-diff-range: var(--ctp-mauve);
+    --color-prettylights-syntax-sublimelinter-gutter-mark: var(--ctp-surface2);
+    --ctp-lvl1: color-mix(in srgb, var(--ctp-accent, #cba6f7) 28%, #313244);
+    --ctp-lvl2: color-mix(in srgb, var(--ctp-accent, #cba6f7) 50%, #313244);
+    --ctp-lvl3: color-mix(in srgb, var(--ctp-accent, #cba6f7) 75%, #313244);
+    --ctp-lvl4: var(--ctp-accent, #cba6f7);
+    --contribution-default-bgColor-0: #313244;
+    --contribution-default-bgColor-1: var(--ctp-lvl1);
+    --contribution-default-bgColor-2: var(--ctp-lvl2);
+    --contribution-default-bgColor-3: var(--ctp-lvl3);
+    --contribution-default-bgColor-4: var(--ctp-lvl4);
+    --contribution-default-borderColor-0: transparent;
+    --contribution-default-borderColor-1: transparent;
+    --contribution-default-borderColor-2: transparent;
+    --contribution-default-borderColor-3: transparent;
+    --contribution-default-borderColor-4: transparent;
+    --color-calendar-graph-day-bg: #313244;
+    --color-calendar-graph-day-border: transparent;
+    --color-calendar-graph-day-L1-bg: var(--ctp-lvl1);
+    --color-calendar-graph-day-L2-bg: var(--ctp-lvl2);
+    --color-calendar-graph-day-L3-bg: var(--ctp-lvl3);
+    --color-calendar-graph-day-L4-bg: var(--ctp-lvl4);
+    --color-calendar-graph-day-L1-border: transparent;
+    --color-calendar-graph-day-L2-border: transparent;
+    --color-calendar-graph-day-L3-border: transparent;
+    --color-calendar-graph-day-L4-border: transparent;
+  }
+  .ContributionCalendar-day[data-level="0"], ul.legend li[data-level="0"] { background-color: var(--ctp-surface0, #313244) !important; }
+  .ContributionCalendar-day[data-level="1"], ul.legend li[data-level="1"] { background-color: var(--ctp-lvl1, #5b4d75) !important; }
+  .ContributionCalendar-day[data-level="2"], ul.legend li[data-level="2"] { background-color: var(--ctp-lvl2, #7d6a9f) !important; }
+  .ContributionCalendar-day[data-level="3"], ul.legend li[data-level="3"] { background-color: var(--ctp-lvl3, #a488cd) !important; }
+  .ContributionCalendar-day[data-level="4"], ul.legend li[data-level="4"] { background-color: var(--ctp-lvl4, #cba6f7) !important; }
+  .ContributionCalendar-day {
+    outline: none !important;
+    border-radius: 3px !important;
+    transition: transform .15s, filter .15s, box-shadow .15s;
+  }
+  .ContributionCalendar-day[data-level="4"] {
+    box-shadow: 0 0 6px color-mix(in srgb, var(--ctp-accent, #cba6f7) 70%, transparent);
+  }
+  .ContributionCalendar-day:hover {
+    transform: scale(1.5);
+    filter: brightness(1.25);
+    box-shadow: 0 0 10px var(--ctp-accent, #cba6f7);
+    z-index: 5;
+  }
+  html, body { background-color: var(--ctp-base) !important; }
+  ::selection { background: color-mix(in srgb, var(--ctp-accent) 35%, transparent) !important; color: var(--ctp-text) !important; }
+  body::before {
+    content: "";
+    position: fixed; inset: 0 0 auto 0; height: 320px;
+    background: radial-gradient(ellipse 60% 100% at 50% 0%,
+      color-mix(in srgb, var(--ctp-accent) 14%, transparent), transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  .AppHeader, .Header, header.AppHeader-globalBar {
+    background: linear-gradient(180deg, var(--ctp-crust), var(--ctp-mantle)) !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--ctp-accent) 25%, var(--ctp-surface1)) !important;
+  }
+  * { scrollbar-color: color-mix(in srgb, var(--ctp-accent) 45%, var(--ctp-surface1)) var(--ctp-mantle); }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: var(--ctp-surface2); border-radius: 8px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--ctp-accent); }
+  .Box, .Box-row, .border.rounded-2, .pinned-item-list-item, .js-pinned-item-list-item {
+    border-radius: 12px !important;
+  }
+  .pinned-item-list-item, .js-pinned-item-list-item, .Box {
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+  }
+  .pinned-item-list-item:hover, .js-pinned-item-list-item:hover {
+    border-color: var(--ctp-accent) !important;
+    box-shadow: 0 6px 24px color-mix(in srgb, var(--ctp-accent) 18%, transparent);
+    transform: translateY(-2px);
+  }
+  .Box-header { background: var(--ctp-mantle) !important; border-radius: 12px 12px 0 0 !important; }
+  .btn, .Button { border-radius: 8px !important; transition: all .15s; }
+  .btn-primary, .Button--primary {
+    box-shadow: 0 0 14px color-mix(in srgb, var(--ctp-accent) 35%, transparent);
+  }
+  .btn:hover, .Button:hover { transform: translateY(-1px); }
+  input.form-control, textarea.form-control, .form-control, .FormControl-input {
+    background: var(--ctp-mantle) !important;
+    border-radius: 8px !important;
+  }
+  .form-control:focus, .FormControl-input:focus {
+    border-color: var(--ctp-accent) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ctp-accent) 25%, transparent) !important;
+  }
+  .UnderlineNav-item[aria-current]:not([aria-current="false"]),
+  .UnderlineNav-item.selected {
+    border-bottom-color: var(--ctp-accent) !important;
+  }
+  .UnderlineNav-item:hover { border-bottom-color: var(--ctp-overlay0) !important; }
+  .UnderlineNav { border-bottom-color: var(--ctp-surface1) !important; }
+  .avatar-user, img.avatar {
+    box-shadow: 0 0 0 2px var(--ctp-base), 0 0 0 4px color-mix(in srgb, var(--ctp-accent) 60%, transparent);
+  }
+  .avatar.avatar-user { border-radius: 50% !important; }
+  .Counter { background: var(--ctp-surface1) !important; color: var(--ctp-text) !important; }
+  .State--open, .State--merged, .State--closed { border-radius: 999px !important; }
+  .State--open { background: var(--ctp-green) !important; color: var(--ctp-crust) !important; }
+  .State--merged { background: var(--ctp-mauve) !important; color: var(--ctp-crust) !important; }
+  .State--closed { background: var(--ctp-red) !important; color: var(--ctp-crust) !important; }
+  .markdown-body { color: var(--ctp-text) !important; background: transparent !important; }
+  .markdown-body h1, .markdown-body h2 { border-bottom-color: var(--ctp-surface1) !important; }
+  .markdown-body h1, .markdown-body h2, .markdown-body h3 { color: var(--ctp-lavender); }
+  .markdown-body a { color: var(--ctp-accent); }
+  .markdown-body code, .markdown-body tt {
+    background: var(--ctp-surface0) !important;
+    color: var(--ctp-peach) !important;
+    border-radius: 6px;
+  }
+  .markdown-body pre, .highlight pre {
+    background: var(--ctp-mantle) !important;
+    border: 1px solid var(--ctp-surface0);
+    border-radius: 10px !important;
+  }
+  .markdown-body blockquote {
+    border-left: 4px solid var(--ctp-accent) !important;
+    color: var(--ctp-subtext0) !important;
+  }
+  .markdown-body table tr { background: var(--ctp-base) !important; border-top-color: var(--ctp-surface1) !important; }
+  .markdown-body table tr:nth-child(2n) { background: var(--ctp-mantle) !important; }
+  .markdown-body hr { background: var(--ctp-surface1) !important; }
+  a { transition: color .15s; }
+  a:hover { color: color-mix(in srgb, var(--ctp-accent) 80%, white) !important; }
+  .Progress, .Progress-item { border-radius: 999px !important; }
+}
